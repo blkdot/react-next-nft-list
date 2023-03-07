@@ -27,8 +27,8 @@ const App: NextPage = () => {
           </Text>
         </Heading>
         <Text color={'gray.500'}>
-          You can input or copy the address for a NFT token address and click 'view collections' button to view the NFT lists. <br />
-          As a default, you can see the NFT list for CryptoPunks
+          Welcome to this page!<br />
+          Users can see the NFT list for CryptoPunks by clicking 'view collection' button
         </Text>
         <Stack
           direction={'column'}
@@ -46,7 +46,7 @@ const App: NextPage = () => {
               _hover={{
                 bg: 'green.500',
               }}>
-              View Collections
+              View Collection
             </Link>
           </NextLink>
         </Stack>

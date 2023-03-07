@@ -11,3 +11,9 @@ export const fetchCollection = async (id: any) => {
   const results = await fetch(`${NFT_COLLECTIONS_CLIENT}/${id}`, MORALIS_API_GET_OPTION);
   return results.json();
 }
+
+// Fetch NFT data by TOken ID from moralis
+export const fetchNFTData = async (id: any) => {
+  const results = await fetch(`${NFT_COLLECTIONS_CLIENT}/${id}/owners`, MORALIS_API_GET_OPTION);
+  return results.json();
+}

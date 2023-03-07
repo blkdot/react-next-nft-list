@@ -16,7 +16,6 @@ const Links = [
   { name: 'Home', href: '/' },
   { name: 'Collections', href: '/collections' },
   { name: 'About', href: '#' },
-  { name: 'Contact', href: '#' },
 ];
 
 const NavLink = ({ children, href }: { children: ReactNode, href: string }) => (

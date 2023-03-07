@@ -51,9 +51,11 @@ const initCollectionMetadata: ICollectionMetadata = {
   description: ''
 }
 
-const ItemModal = (props: {isOpen: boolean, onClose: any, collection: ICollection, metadata: ICollectionMetadata}) => {
+const ItemModal = (props: {isOpen: boolean, onClose: any, collection: ICollection, metadata: ICollectionMetadata, ownerAddress: string}) => {
 
-  const {isOpen, onClose, collection, metadata} = props
+  const {isOpen, onClose, collection, metadata, ownerAddress} = props
+
+  console.log('collection==>', collection)
 
   const dividerColor =useColorModeValue('gray.100', 'gray.700');
   const titleColor = useColorModeValue('gray.500', 'gray.300');
@@ -123,6 +125,20 @@ const ItemModal = (props: {isOpen: boolean, onClose: any, collection: ICollectio
                         </ListItem>
                         <ListItem>
                           <Flex justifyContent={'space-between'} fontSize={'sm'} fontWeight={300}>
+                            <Text as={'span'}>Owner Address</Text>
+                            <Link
+                              _hover={{
+                                textDecoration: 'none',
+                              }}
+                              href={`https://etherscan.io/address/${collection?.token_address}`}
+                              isExternal
+                            >
+                              {shortAddr(ownerAddress)}
+                            </Link>
+                          </Flex>
+                        </ListItem>
+                        <ListItem>
+                          <Flex justifyContent={'space-between'} fontSize={'sm'} fontWeight={300}>
                             <Text as={'span'}>Token Standard</Text>
                             <Text as={'span'}>{collection.name}</Text>
                           </Flex>
@@ -177,15 +193,33 @@ const ItemModal = (props: {isOpen: boolean, onClose: any, collection: ICollectio
                         </Tag>
                       </Flex>
                     </Stack>
+                    <Stack
+                      spacing={2}
+                    >
+                       <Link
+                        _hover={{
+                          textDecoration: 'none',
+                        }}
+                        href={`https://opensea.io/assets/ethereum/${collection?.token_address}/${collection?.token_id}`}
+                        isExternal
+                        fontSize={'md'}
+                        px={6}
+                        py={2}
+                        bg={'gray.800'}
+                        color={'white'}
+                        borderRadius={5}
+                        width={'fit-content'}
+                      >
+                        Buy
+                      </Link>
+                    </Stack>
                   </Stack>
+                  
                 </SimpleGrid>
               }
             </Container>
           </Flex>
         </ModalBody>
-        <ModalFooter>
-          {/* <Button onClick={onClose}>Close</Button> */}
-        </ModalFooter>
       </ModalContent>
     </Modal>
   )

@@ -6,7 +6,7 @@ import {
   useColorModeValue,
   useDisclosure
 } from '@chakra-ui/react';
-import { fetchCollection } from '../hooks/useCollections';
+import { fetchCollection, fetchNFTData } from '../hooks/useCollections';
 import { ICollection, ICollectionMetadata } from 'types';
 import { parseJsonObject } from 'helpers';
 import ItemModal from './ItemModal';
@@ -19,6 +19,7 @@ const initCollection: ICollection = {
   last_token_uri_sync: '',
   metadata: '',
   name: '',
+  owner_of: '',
   symbol: '',
   token_address: '',
   token_hash: '',
@@ -38,6 +39,7 @@ const CollectionItem = (props: { collection: ICollection }) => {
   const { collection } = props
   const { isOpen, onOpen, onClose } = useDisclosure()
 
+  const [ownerAddress, setOwnerAddress] = useState<string>('')
   const [metaData, setMetadata] = useState<ICollectionMetadata>(initCollectionMetadata);
 
   const showItemModal = () => {
@@ -45,11 +47,20 @@ const CollectionItem = (props: { collection: ICollection }) => {
       console.log('tokenId does not exist')
       return
     }
+    
     fetchCollection(collection?.token_id).then((res) => {
       if (res.token_id !== '') {
         setMetadata(parseJsonObject(res.metadata))
       }
     })
+
+    fetchNFTData(collection?.token_id).then((res) => {
+      if (res.token_id !== '') {
+        console.log('kkk', res['result'][0]['owner_of'])
+        setOwnerAddress(res['result'][0]['owner_of'])
+      }
+    })
+
     onOpen()
   }
 
@@ -94,7 +105,7 @@ const CollectionItem = (props: { collection: ICollection }) => {
           </Box>
         </Box>
       </Box>
-      <ItemModal isOpen={isOpen} onClose={onClose} collection={collection} metadata={metaData} />
+      <ItemModal isOpen={isOpen} onClose={onClose} collection={collection} metadata={metaData} ownerAddress={ownerAddress} />
     </Flex>
   );
 };
