@@ -5,7 +5,6 @@ const nextConfig = {
   env: {
     NEXT_PUBLIC_MORALIS_API_KEY: process.env.NEXT_PUBLIC_MORALIS_API_KEY,
   },
-  distDir: 'build'
 }
 
 module.exports = nextConfig
