@@ -10,7 +10,6 @@ export default class Document extends NextDocument {
           <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         </Head>
         <body>
-          {/* Make Color mode to persists when you refresh the page. */}
           <ColorModeScript />
           <Main />
           <NextScript />

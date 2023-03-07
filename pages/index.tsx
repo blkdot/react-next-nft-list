@@ -28,7 +28,7 @@ const App: NextPage = () => {
         </Heading>
         <Text color={'gray.500'}>
           Welcome to this page!<br />
-          Users can see the NFT list for CryptoPunks by clicking 'view collection' button
+          Users can see the NFT list for CryptoPunks by clicking the bellow button
         </Text>
         <Stack
           direction={'column'}
