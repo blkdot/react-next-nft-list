@@ -38,5 +38,3 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - Moralis API
 - Netifly
 ## Deploy on Vercel
-
-Check out  [https://nextjs-web3-nfts-test.vercel.app/](https://nextjs-web3-nfts-test.vercel.app/) for live.
