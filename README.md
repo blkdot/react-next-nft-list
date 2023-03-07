@@ -1,14 +1,14 @@
 # Test Assessment
 
 ## Task
- - Create a new Git repository and project (Public).
- - Use NextJS (JS or TS), Wagmi, Tailwind or ChakraUI and create a small app. 
-Features and structure: 
-- Nice layout with navbar and footer with Next Router.
-- Wallet Connection Integration with Metamask and Coinbase Wallet with Wagmi.
-- Use API of your choice e.g. Coinbase API or any other and display CryptoPunk Collection on the front page of your project.
-- Very important is clean code and comments in your functions.
-- Deploy to Vercel or Netifly.
+1. The list of NFTs should be displayed as a grid of cards, with each card displaying the
+NFT's details.
+2. When a user clicks on a card, a modal should be displayed that shows more details
+about the NFT, such as its description and the owner's address.
+3. The modal should have a button that allows the user to purchase the NFT. Clicking
+the button should navigate them to the relevant OpenSea page.
+4. The design of the grid of cards and the modal is up to you, but it should be visually
+appealing and easy to use.
 
 
 ## Getting Started
